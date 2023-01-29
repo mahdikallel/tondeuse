@@ -13,32 +13,21 @@ public class MowerMoveAheadService implements Function<Mower, Coordinate> {
 
     @Override
     public Coordinate apply(Mower mower) {
-        switch (mower.getOrientation()) {
-            case NORTH -> {
-                return Coordinate.builder()
-                        .coordinateX(mower.getCoordinate().getCoordinateX())
-                        .coordinateY(mower.getCoordinate().getCoordinateY() + 1)
-                        .build();
-            }
-            case SOUTH -> {
-                return Coordinate.builder()
-                        .coordinateX(mower.getCoordinate().getCoordinateX())
-                        .coordinateY(mower.getCoordinate().getCoordinateY() - 1)
-                        .build();
-            }
-            case EAST -> {
-                return Coordinate.builder()
-                        .coordinateX(mower.getCoordinate().getCoordinateX() + 1)
-                        .coordinateY(mower.getCoordinate().getCoordinateY())
-                        .build();
-            }
-            case WEST -> {
-                return Coordinate.builder()
-                        .coordinateX(mower.getCoordinate().getCoordinateX() - 1)
-                        .coordinateY(mower.getCoordinate().getCoordinateY())
-                        .build();
-            }
-            default -> throw new IllegalArgumentException("Orientation not yet supported");
-        }
+        final Integer coordinateX = mower.getCoordinate().getCoordinateX();
+        final Integer coordinateY = mower.getCoordinate().getCoordinateY();
+        return switch (mower.getOrientation()) {
+            case NORTH -> buildCoordinates(coordinateX, coordinateY + 1);
+            case SOUTH -> buildCoordinates(coordinateX, coordinateY - 1);
+            case EAST -> buildCoordinates(coordinateX + 1, coordinateY);
+            case WEST -> buildCoordinates(coordinateX - 1, coordinateY);
+
+        };
+    }
+
+    private static Coordinate buildCoordinates(Integer coordinateX, Integer coordinateY) {
+        return Coordinate.builder()
+                .coordinateX(coordinateX)
+                .coordinateY(coordinateY)
+                .build();
     }
 }
