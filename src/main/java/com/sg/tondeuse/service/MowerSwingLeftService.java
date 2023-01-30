@@ -12,7 +12,6 @@ public class MowerSwingLeftService implements Function<Mower, Orientation> {
 
     @Override
     public Orientation apply(Mower mower) {
-        Orientation orientation = mower.getOrientation();
         return switch (mower.getOrientation()) {
             case NORTH -> Orientation.WEST;
             case EAST -> Orientation.NORTH;
