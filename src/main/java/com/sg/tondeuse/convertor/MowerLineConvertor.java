@@ -6,6 +6,7 @@ import com.sg.tondeuse.model.Mower;
 import org.springframework.stereotype.Component;
 
 import java.util.function.Function;
+
 @Component
 public class MowerLineConvertor implements Function<String, Mower> {
 

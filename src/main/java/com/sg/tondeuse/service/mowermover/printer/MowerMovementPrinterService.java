@@ -24,7 +24,7 @@ public class MowerMovementPrinterService {
         this.mowerMoverService = mowerMoverService;
     }
 
-     StringBuilder prepareOutput(Mower mower) {
+    StringBuilder prepareOutput(Mower mower) {
         return new StringBuilder()
                 .append(mower.getCoordinate().getCoordinateX())
                 .append(" ")

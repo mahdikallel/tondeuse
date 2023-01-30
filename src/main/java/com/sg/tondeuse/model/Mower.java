@@ -11,7 +11,7 @@ public class Mower {
 
     private Coordinate coordinate;
     private Orientation orientation;
-    
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

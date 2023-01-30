@@ -11,6 +11,13 @@ import java.util.function.Function;
 public class MowerMoveAheadService implements Function<Mower, Coordinate> {
 
 
+    private static Coordinate buildCoordinates(Integer coordinateX, Integer coordinateY) {
+        return Coordinate.builder()
+                .coordinateX(coordinateX)
+                .coordinateY(coordinateY)
+                .build();
+    }
+
     @Override
     public Coordinate apply(Mower mower) {
         final Integer coordinateX = mower.getCoordinate().getCoordinateX();
@@ -22,12 +29,5 @@ public class MowerMoveAheadService implements Function<Mower, Coordinate> {
             case WEST -> buildCoordinates(coordinateX - 1, coordinateY);
 
         };
-    }
-
-    private static Coordinate buildCoordinates(Integer coordinateX, Integer coordinateY) {
-        return Coordinate.builder()
-                .coordinateX(coordinateX)
-                .coordinateY(coordinateY)
-                .build();
     }
 }

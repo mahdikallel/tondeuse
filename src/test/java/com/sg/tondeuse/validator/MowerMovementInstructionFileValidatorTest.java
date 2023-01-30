@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.List;
+
 @SpringBootTest
 class MowerMovementInstructionFileValidatorTest {
 
@@ -38,9 +39,7 @@ class MowerMovementInstructionFileValidatorTest {
         );
 
         // when
-        IllegalArgumentException illegalArgumentException = Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            movementInstructionValidator.test(lines);
-        });
+        IllegalArgumentException illegalArgumentException = Assertions.assertThrows(IllegalArgumentException.class, () -> movementInstructionValidator.test(lines));
 
 
         // then
@@ -57,9 +56,7 @@ class MowerMovementInstructionFileValidatorTest {
         );
 
         // when
-        IllegalArgumentException illegalArgumentException = Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            movementInstructionValidator.test(lines);
-        });
+        IllegalArgumentException illegalArgumentException = Assertions.assertThrows(IllegalArgumentException.class, () -> movementInstructionValidator.test(lines));
 
 
         // then
@@ -76,9 +73,7 @@ class MowerMovementInstructionFileValidatorTest {
         );
 
         // when
-        IllegalArgumentException illegalArgumentException = Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            movementInstructionValidator.test(lines);
-        });
+        IllegalArgumentException illegalArgumentException = Assertions.assertThrows(IllegalArgumentException.class, () -> movementInstructionValidator.test(lines));
 
 
         // then
@@ -91,9 +86,7 @@ class MowerMovementInstructionFileValidatorTest {
         List<String> lines = List.of();
 
         // when
-        IllegalArgumentException illegalArgumentException = Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            movementInstructionValidator.test(lines);
-        });
+        IllegalArgumentException illegalArgumentException = Assertions.assertThrows(IllegalArgumentException.class, () -> movementInstructionValidator.test(lines));
 
 
         // then
