@@ -1,11 +1,8 @@
-package com.sg.tondeuse.service;
+package com.sg.tondeuse.service.mowermover;
 
 
 import com.sg.tondeuse.exception.MowerOutsideLawnException;
 import com.sg.tondeuse.model.*;
-import com.sg.tondeuse.service.mowermover.MowerMoveAheadService;
-import com.sg.tondeuse.service.mowermover.MowerSwingLeftService;
-import com.sg.tondeuse.service.mowermover.MowerSwingRightService;
 import com.sg.tondeuse.service.mowermover.validator.MowerPositionInLawnValidator;
 import org.springframework.stereotype.Service;
 

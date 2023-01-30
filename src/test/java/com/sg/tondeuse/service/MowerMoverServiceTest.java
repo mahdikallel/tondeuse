@@ -2,6 +2,7 @@ package com.sg.tondeuse.service;
 
 import com.sg.tondeuse.exception.MowerOutsideLawnException;
 import com.sg.tondeuse.model.*;
+import com.sg.tondeuse.service.mowermover.MowerMoverService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
