@@ -1,5 +1,6 @@
 package com.sg.tondeuse.service;
 
+import com.sg.tondeuse.exception.MowerOutsideLawnException;
 import com.sg.tondeuse.model.*;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -29,7 +30,7 @@ class MowerMoverServiceTest {
     }
 
     @Test
-    public void should_return_same_mower_coordinates_orientation_when_no_movement_founded() throws Exception {
+    public void should_return_same_mower_coordinates_orientation_when_no_movement_founded() {
 
         // given
         List<Movement> movements = new ArrayList<>();
@@ -47,7 +48,7 @@ class MowerMoverServiceTest {
     }
 
     @Test
-    public void should_return_valid_mower_coordinates_orientation_movement_founded() throws Exception {
+    public void should_return_valid_mower_coordinates_orientation_movement_founded() {
 
         // given
         List<Movement> movements = List.of(
@@ -76,7 +77,7 @@ class MowerMoverServiceTest {
     }
 
     @Test
-    public void should_return_valid_mower_coordinates_orientation_movement_founded_second_test() throws Exception {
+    public void should_return_valid_mower_coordinates_orientation_movement_founded_second_test() {
         // given
         List<Movement> movements = List.of(
                 Movement.AHEAD,
@@ -115,12 +116,33 @@ class MowerMoverServiceTest {
 
 
         // when
-        Exception exception = Assertions.assertThrows(Exception.class, () -> {
-            mowerMoverService.moveMower(this.lawn, mower, movements);
-        });
+        Exception exception = Assertions.assertThrows(Exception.class, () -> mowerMoverService.moveMower(this.lawn, mower, movements));
 
 
         // then
         Assertions.assertEquals(exception.getMessage(), "the mower is outside the lawn");
+        Assertions.assertInstanceOf(MowerOutsideLawnException.class, exception);
+    }
+
+    @Test
+    public void should_not_move_mower_when_movement_is_outside_lawn() {
+
+        // Given
+        List<Movement> movements = List.of(
+                Movement.AHEAD,
+                Movement.TO_LEFT
+        );
+        Mower mower = Mower.builder()
+                .coordinate(Coordinate.builder().coordinateX(5).coordinateY(5).build())
+                .orientation(Orientation.EAST)
+                .build();
+
+        // When
+        Mower mower1 = mowerMoverService.moveMower(this.lawn, mower, movements);
+
+        // Then
+        Assertions.assertEquals(Orientation.NORTH, mower1.getOrientation());
+        Assertions.assertEquals(5, mower1.getCoordinate().getCoordinateX());
+        Assertions.assertEquals(5, mower1.getCoordinate().getCoordinateY());
     }
 }

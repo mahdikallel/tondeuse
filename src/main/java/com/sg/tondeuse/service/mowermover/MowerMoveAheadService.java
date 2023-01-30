@@ -1,4 +1,4 @@
-package com.sg.tondeuse.service;
+package com.sg.tondeuse.service.mowermover;
 
 
 import com.sg.tondeuse.model.Coordinate;
