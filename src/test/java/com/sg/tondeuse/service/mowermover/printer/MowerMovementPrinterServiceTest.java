@@ -32,7 +32,7 @@ class MowerMovementPrinterServiceTest {
         String output = mowerMovementPrinterService.print(lines);
 
         // then
-        String expected = "1 3 N 5 1 E ";
+        String expected = "1 3 N 5 1 E";
         Assertions.assertEquals(expected, output);
     }
 
@@ -49,7 +49,7 @@ class MowerMovementPrinterServiceTest {
         StringBuilder actual = mowerMovementPrinterService.prepareOutput(mower);
 
         // then
-        String expected = "1 3 N ";
+        String expected = "1 3 N";
         Assertions.assertEquals(expected, actual.toString());
     }
 }

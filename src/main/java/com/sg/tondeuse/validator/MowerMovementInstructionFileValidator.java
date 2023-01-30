@@ -7,16 +7,12 @@ import java.util.regex.Pattern;
 
 @Component
 public class MowerMovementInstructionFileValidator {
-
-
     public static final String DIGIT_REGEX = "\\d+";
     public static final String ESCAPE = " ";
-
     public static final String ORIENTATION_REGEX = "[^NEWS]";
     public static final String MOVEMENT_INSTRUCTIONS_REGEX = "[^GAD]";
     private final Pattern orientation_pattern = Pattern.compile(ORIENTATION_REGEX);
     private final Pattern movement_instruction_pattern = Pattern.compile(MOVEMENT_INSTRUCTIONS_REGEX);
-
 
     public boolean test(List<String> lines) {
         if (lines.isEmpty()) {

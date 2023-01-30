@@ -4,26 +4,18 @@ package com.sg.tondeuse.service.mowermover;
 import com.sg.tondeuse.exception.MowerOutsideLawnException;
 import com.sg.tondeuse.model.*;
 import com.sg.tondeuse.service.mowermover.validator.MowerPositionInLawnValidator;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class MowerMoverService {
-
     private final MowerMoveAheadService mowerAheadMoverService;
     private final MowerSwingLeftService mowerSwingLeftService;
     private final MowerSwingRightService mowerSwingRightService;
-
     private final MowerPositionInLawnValidator mowerPositionInLawnValidator;
-
-    public MowerMoverService(MowerMoveAheadService mowerAheadMoverService, MowerSwingLeftService mowerSwingLeftService, MowerSwingRightService mowerSwingRightService, MowerPositionInLawnValidator mowerPositionInLawnValidator) {
-        this.mowerAheadMoverService = mowerAheadMoverService;
-        this.mowerSwingLeftService = mowerSwingLeftService;
-        this.mowerSwingRightService = mowerSwingRightService;
-        this.mowerPositionInLawnValidator = mowerPositionInLawnValidator;
-    }
-
 
     public Mower moveMower(Lawn lawn, Mower mower, List<Movement> movementList) {
         if (!mowerPositionInLawnValidator.isValidPosition(mower.getCoordinate(), lawn)) {

@@ -9,7 +9,6 @@ import java.util.function.Function;
 
 @Service
 public class MowerSwingRightService implements Function<Mower, Orientation> {
-
     @Override
     public Orientation apply(Mower mower) {
         return switch (mower.getOrientation()) {

@@ -7,8 +7,6 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class MowerPositionInLawnValidator {
-
-
     public boolean isValidPosition(Coordinate mowerCoordinates, Lawn lawn) {
         return mowerCoordinates.getCoordinateX() >= lawn.getBottomLeftCorner().getCoordinateX() &&
                 mowerCoordinates.getCoordinateY() >= lawn.getBottomLeftCorner().getCoordinateY() &&

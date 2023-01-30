@@ -24,7 +24,7 @@ class RunnerTest {
         runner.run(args);
 
         Assertions.assertTrue(
-                capturedOutput.getOut().contains("com.sg.tondeuse.Runner                   : 1 3 N 5 1 E ")
+                capturedOutput.getOut().contains("com.sg.tondeuse.Runner                   : 1 3 N 5 1 E")
         );
     }
 }

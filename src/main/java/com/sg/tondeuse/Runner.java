@@ -3,6 +3,7 @@ package com.sg.tondeuse;
 import com.sg.tondeuse.service.mowermover.printer.MowerMovementPrinterService;
 import com.sg.tondeuse.util.FileUtils;
 import com.sg.tondeuse.validator.MowerMovementInstructionFileValidator;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.net.URISyntaxException;
@@ -10,16 +11,11 @@ import java.util.List;
 import java.util.logging.Logger;
 
 @Service
+@RequiredArgsConstructor
 public class Runner {
     private static final Logger LOGGER = Logger.getLogger(Runner.class.getName());
     private final MowerMovementInstructionFileValidator mowerMovementInstructionValidator;
     private final MowerMovementPrinterService mowerMovementPrinterService;
-
-    public Runner(MowerMovementInstructionFileValidator mowerMovementInstructionValidator, MowerMovementPrinterService mowerMovementPrinterService) {
-        this.mowerMovementInstructionValidator = mowerMovementInstructionValidator;
-        this.mowerMovementPrinterService = mowerMovementPrinterService;
-    }
-
 
     public void run(String[] args) throws URISyntaxException {
         List<String> fileLines;
